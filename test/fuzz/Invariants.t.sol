@@ -30,7 +30,7 @@ contract InvariantTests is StdInvariant, Test {
     address public wbtc;
     address public ethUsdPriceFeed;
     address public btcUsdPriceFeed;
- 
+
     function setUp() external {
         deployer = new DeployDSC();
         (dsc, dsce, helperConfig) = deployer.run();
@@ -39,7 +39,7 @@ contract InvariantTests is StdInvariant, Test {
 
         targetContract(address(handler));
     }
-    
+
     function invariant_ProtocolMustHaveMoreValueThanTotalSupply() public view {
         console.log("Running ProtocolMustHaveMoreValueThanTotalSupply invariant test");
         // get the value of all the collateral in the protocol
@@ -52,10 +52,10 @@ contract InvariantTests is StdInvariant, Test {
         console.log("Total WETH deposited:", totalWethDeposited);
         console.log("Total WBTC deposited:", totalWbtcDeposited);
         console.log("Total DSC supply:", totalSupply);
-        
+
         uint256 wethValue = dsce.getUsdValue(weth, totalWethDeposited);
         uint256 wbtcValue = dsce.getUsdValue(wbtc, totalWbtcDeposited);
-        
+
         assert(wethValue + wbtcValue >= totalSupply);
     }
 }

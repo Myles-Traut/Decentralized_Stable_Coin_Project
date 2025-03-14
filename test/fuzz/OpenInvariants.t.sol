@@ -28,17 +28,17 @@
 //     address public wbtc;
 //     address public ethUsdPriceFeed;
 //     address public btcUsdPriceFeed;
- 
+
 //     function setUp() external {
 //         deployer = new DeployDSC();
 //         (dsc, dsce, helperConfig) = deployer.run();
 //         (ethUsdPriceFeed, btcUsdPriceFeed, weth, wbtc,) = helperConfig.activeNetworkConfig();
-        
+
 //         // For open invariant testing, we need to:
 //         // 1. Target the contract we want to test
 //         targetContract(address(dsce));
 //     }
-    
+
 //     function invariant_ProtocolMustHaveMoreValueThanTotalSupply() public view {
 //         console.log("Running ProtocolMustHaveMoreValueThanTotalSupply invariant test");
 //         // get the value of all the collateral in the protocol
@@ -51,10 +51,10 @@
 //         console.log("Total WETH deposited:", totalWethDeposited);
 //         console.log("Total WBTC deposited:", totalWbtcDeposited);
 //         console.log("Total DSC supply:", totalSupply);
-        
+
 //         uint256 wethValue = dsce.getUsdValue(weth, totalWethDeposited);
 //         uint256 wbtcValue = dsce.getUsdValue(wbtc, totalWbtcDeposited);
-        
+
 //         assert(wethValue + wbtcValue >= totalSupply);
 //     }
 // }
